@@ -22,7 +22,7 @@ Output:
 
 Explanation:
 Compare nodes of both lists, append smaller to result,
-continue until all nodes are merged.*/
+matcontinue until all nodes are merged.*/
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -31,10 +31,10 @@ struct Node {
     struct Node* next;
 };
 
-struct Node* insertEnd(struct Node* head, int value) {
+struct Node* insertEnd(struct Node* head, int value)/*insert karo ek naya node linked list k end mai */ {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = value;
-    newNode->next = NULL;
+    newNode->next = NULL; // last node ka next NULL hoga
 
     if (head == NULL)
         return newNode;
