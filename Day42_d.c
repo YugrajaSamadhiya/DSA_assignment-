@@ -15,3 +15,35 @@ Input:
 
 Output:
 50 40 30 20 10*/
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    int *queue = (int *)malloc(n * sizeof(int));
+    int *stack = (int *)malloc(n * sizeof(int));
+    int top = -1;
+
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &queue[i]);
+    }
+
+    for (int i = 0; i < n; i++) {
+        stack[++top] = queue[i];
+    }
+
+    int front = 0;
+    while (top != -1) {
+        queue[front++] = stack[top--];
+    }
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", queue[i]);
+    }
+
+    free(queue);
+    free(stack);
+    return 0;
+}
